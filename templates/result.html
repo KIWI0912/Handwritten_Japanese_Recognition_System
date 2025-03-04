@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>识别结果</title>
+</head>
+<body>
+    <h1>识别结果</h1>
+    <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image" style="max-width: 300px;">
+    <p>预测类别：{{ predicted_class }}</p>
+    <p>置信度：{{ confidence }}%</p>
+    <a href="/">返回主页</a>
+</body>
+</html>
