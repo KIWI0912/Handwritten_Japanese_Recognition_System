@@ -45,8 +45,8 @@ cd Handwritten_Japanese_Recognition_System
 ### 2. Set Up a Virtual Environment
 Create and activate a virtual environment:
 ```bash
-python3 -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+python3.11 -m venv myenv
+source myenv/bin/activate
 ```
 
 ### 3. Install Dependencies
