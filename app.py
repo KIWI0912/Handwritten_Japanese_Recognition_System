@@ -95,7 +95,7 @@ def upload_file():
             try:
                 # 2. 保存文件
                 filename = secure_filename(file.filename)
-                file_path = os.path.join(UPLOAD_FOLDER, filename)
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 print(f"Attempting to save file to: {file_path}")
 
                 # 确保上传目录存在
@@ -117,7 +117,7 @@ def upload_file():
                         confidence, predicted_class = torch.max(probabilities, 1)
 
                     predicted_class = CLASSES[predicted_class.item()]
-                    confidence = confidence.item() * 100
+                    confidence = confidence.item() * 100  # 转换为浮点数并乘以100
                     print(f"Prediction complete: {predicted_class} ({confidence:.2f}%)")
 
                     # 5. 返回结果
@@ -128,7 +128,7 @@ def upload_file():
                         'result.html',
                         image_path=image_url,
                         predicted_class=predicted_class,
-                        confidence=f"{confidence:.2f}"
+                        confidence=f"{confidence:.2f}"  # 格式化为字符串
                     )
 
                 except Exception as e:
