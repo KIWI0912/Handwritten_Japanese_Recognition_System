@@ -13,7 +13,11 @@
         </div>
         
         <div class="main">
-            <div id="error-message" class="error-message"></div>
+            <div id="error-message" class="error-message">
+                {% if confidence < 80 %}
+                <p style="color: red; font-weight: bold;">❌ Recognition failed! Confidence is below 80%.</p>
+                {% endif %}
+            </div>
             
             <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
                 <div class="image-section">
@@ -27,8 +31,14 @@
                 
                 <div class="result-box">
                     <h3>Recognition Results</h3>
-                    <p>Character: {{ predicted_class }}</strong></p>
-                    <p>Confidence: {{ confidence }}%</strong></p>
+                    {% if confidence >= 80 %}
+                    <p>Character: <strong>{{ predicted_class }}</strong></p>
+                    <p>Confidence: <strong>{{ confidence }}%</strong></p>
+                    <p style="color: green; font-weight: bold;">✅ Match Successful!</p>
+                    {% else %}
+                    <p>Character: <strong>N/A</strong></p>
+                    <p>Confidence: <strong>{{ confidence }}%</strong></p>
+                    {% endif %}
                 </div>
 
                 <div class="button-group">
