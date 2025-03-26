@@ -9,16 +9,25 @@ This repository contains a Flask-based web application for recognizing handwritt
 ```
 Handwritten_Japanese_Recognition_System/
 ├── app.py                # Flask main application
-├── static/               # Static files (CSS, images, etc.)
+├── static/               # Static files
 │   ├── css/
-│   │   └── style.css     # Page styles
+│   │   ├── main.css      # Main page styles
+│   │   └── result.css    # Result page styles
+│   └── js/
+│       ├── main.js       # Main page scripts
+│       └── result.js     # Result page scripts
 ├── templates/            # HTML templates
 │   ├── index.html        # Upload page
 │   └── result.html       # Result display page
 ├── uploads/              # Directory for uploaded images
-├── model/                # Directory for model files (currently empty in mock phase)
-│   └── kmnist_model.h5   # Trained model file (to be added later)
-└── requirements.txt      # List of dependencies
+├── model_batch_16.pth    # Trained PyTorch model
+├── README.md             # Model documentation
+├── __init__.py
+├── .gitignore          # Git ignore file
+├── README.md           # Project documentation
+├── requirements.txt    # Project dependencies
+└── config.py           # Configuration settings
+
 ```
 
 ---
