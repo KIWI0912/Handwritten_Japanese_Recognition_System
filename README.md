@@ -25,8 +25,7 @@ Handwritten_Japanese_Recognition_System/
 ├── __init__.py
 ├── .gitignore          # Git ignore file
 ├── README.md           # Project documentation
-├── requirements.txt    # Project dependencies
-└── config.py           # Configuration settings
+└── requirements.txt    # Project dependencies
 
 ```
 
