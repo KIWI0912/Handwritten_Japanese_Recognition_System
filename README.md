@@ -118,21 +118,6 @@ pip install -r requirements.txt
 
 ---
 
-## Screenshots
-
-### Upload Page (`index.html`)
-(Add a screenshot of your upload page here.)
-
-### Result Page (`result.html`)
-(Add a screenshot of your result page here.)
-
----
-
-## License
-
-This project is licensed under the MIT License. Feel free to use and modify it for your own projects.
-
----
 
 ## Acknowledgments
 
