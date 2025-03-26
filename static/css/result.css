@@ -1,0 +1,20 @@
+/* 继承main.css的基础样式 */
+@import 'main.css';
+
+/* Result页面特定样式 */
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.button:hover {
+    background: #0056b3;
+}
