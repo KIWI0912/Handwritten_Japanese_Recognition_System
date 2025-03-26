@@ -1,6 +1,6 @@
 # Handwritten_Japanese_Recognition_System
 
-This repository contains a Flask-based web application for recognizing handwritten Japanese characters from the KMNIST dataset. The project is currently in the **mock model phase**, which uses randomly generated predictions for demonstration purposes. The ultimate goal is to integrate a trained deep learning model for accurate recognition.
+This repository contains a Flask-based web application for recognizing handwritten Japanese characters from the KMNIST dataset. 
 
 ---
 
