@@ -14,13 +14,13 @@ function showError(message) {
         const form = document.getElementById('upload-form');
         
         if (!fileInput.files || fileInput.files.length === 0) {
-            showError('请先选择一个图片文件');
+            showError('Please select an image file first❗️');
             return false;
         }
 
         const file = fileInput.files[0];
         if (!file.type.match('image.*')) {
-            showError('请选择有效的图片文件');
+            showError('Please select a valid image file❗️');
             return false;
         }
 
@@ -41,7 +41,7 @@ function showError(message) {
             document.documentElement.innerHTML = html;
         })
         .catch(error => {
-            showError('上传失败: ' + error.message);
+            showError('Upload failed: ' + error.message);
             document.getElementById('loading').style.display = 'none';
         });
 
@@ -55,7 +55,7 @@ function showError(message) {
         const previewText = document.getElementById('preview-text');
         
         if (file) {
-            filenameDisplay.textContent = '已选择: ' + file.name;
+            filenameDisplay.textContent = 'Selected: ' + file.name;
             
             const reader = new FileReader();
             reader.onload = function(e) {
