@@ -34,7 +34,7 @@
                     <h3>Recognition Results</h3>
                     {% if confidence >= 80 %}
                     <p>Character: <strong>{{ predicted_class }}</strong></p>
-                    <p>Confidence: <strong>{{ confidence }}%</strong></p>
+                    <p>Confidence: {{ confidence | round(2) }}%</p>
                     <p style="color: green; font-weight: bold;">✅ Match Successful!</p>
                     {% else %}
                     <p>Character: <strong>N/A</strong></p>
