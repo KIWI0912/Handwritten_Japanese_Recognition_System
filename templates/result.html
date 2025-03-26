@@ -10,6 +10,7 @@
     <div class="container">
         <div class="header">
             <h1>📄 Recognition Result</h1>
+            <p>🎉 🎉 🎉</p>
         </div>
         
         <div class="main">
@@ -37,7 +38,7 @@
                     <p style="color: green; font-weight: bold;">✅ Match Successful!</p>
                     {% else %}
                     <p>Character: <strong>N/A</strong></p>
-                    <p>Confidence: <strong>{{ confidence }}%</strong></p>
+                    <p>Confidence: {{ confidence | round(2) }}%</p>
                     {% endif %}
                 </div>
 
