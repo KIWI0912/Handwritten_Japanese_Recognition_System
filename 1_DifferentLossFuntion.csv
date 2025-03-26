@@ -1,0 +1,41 @@
+Loss Function,Epoch,train_loss,train_accuracy,test_accuracy
+Cross Entropy Loss,1,0.2953,90.77%,94.98%
+Cross Entropy Loss,2,0.0934,97.15%,94.97%
+Cross Entropy Loss,3,0.064,98.01%,95.12%
+Cross Entropy Loss,4,0.048,98.52%,95.27%
+Cross Entropy Loss,5,0.0396,98.76%,95.12%
+Cross Entropy Loss,6,0.0298,99.04%,94.98%
+Cross Entropy Loss,7,0.0239,99.22%,95.06%
+Cross Entropy Loss,8,0.0231,99.25%,95.14%
+Cross Entropy Loss,9,0.0209,99.29%,95.11%
+Cross Entropy Loss,10,0.0189,99.36%,95.05%
+Cross Entropy Loss(Add L2 regularization),1,0.442,86.21%,95.54%
+Cross Entropy Loss(Add L2 regularization),2,0.1925,94.16%,95.21%
+Cross Entropy Loss(Add L2 regularization),3,0.15,95.31%,95.26%
+Cross Entropy Loss(Add L2 regularization),4,0.122,96.24%,95.50%
+Cross Entropy Loss(Add L2 regularization),5,0.1096,96.65%,95.37%
+Cross Entropy Loss(Add L2 regularization),6,0.0964,96.95%,95.32%
+Cross Entropy Loss(Add L2 regularization),7,0.0876,97.23%,95.38%
+Cross Entropy Loss(Add L2 regularization),8,0.081,97.50%,95.46%
+Cross Entropy Loss(Add L2 regularization),9,0.0745,97.63%,95.40%
+Cross Entropy Loss(Add L2 regularization),10,0.0711,97.70%,95.25%
+Label Smoothing Cross-Entropy Loss(Add L2),1,0.9276,86.52%,94.86%
+Label Smoothing Cross-Entropy Loss(Add L2),2,0.7497,94.59%,94.87%
+Label Smoothing Cross-Entropy Loss(Add L2),3,0.7121,95.94%,94.88%
+Label Smoothing Cross-Entropy Loss(Add L2),4,0.6882,96.62%,94.89%
+Label Smoothing Cross-Entropy Loss(Add L2),5,0.6737,97.14%,94.94%
+Label Smoothing Cross-Entropy Loss(Add L2),6,0.6611,97.40%,94.80%
+Label Smoothing Cross-Entropy Loss(Add L2),7,0.6528,97.66%,94.57%
+Label Smoothing Cross-Entropy Loss(Add L2),8,0.647,97.83%,94.79%
+Label Smoothing Cross-Entropy Loss(Add L2),9,0.6435,97.89%,95.04%
+Label Smoothing Cross-Entropy Loss(Add L2),10,0.6385,98.06%,95.12%
+KLDiv Loss (Add L2),1,0.4569,85.65%,95.17%
+KLDiv Loss (Add L2),2,0.2093,93.59%,94.95%
+KLDiv Loss (Add L2),3,0.1633,95.00%,94.84%
+KLDiv Loss (Add L2),4,0.1349,95.78%,95.06%
+KLDiv Loss (Add L2),5,0.1154,96.50%,95.05%
+KLDiv Loss (Add L2),6,0.1082,96.65%,95.06%
+KLDiv Loss (Add L2),7,0.0905,97.20%,95.21%
+KLDiv Loss (Add L2),8,0.0861,97.26%,95.27%
+KLDiv Loss (Add L2),9,0.0813,97.41%,94.85%
+KLDiv Loss (Add L2),10,0.0762,97.58%,94.98%
