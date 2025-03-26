@@ -8,6 +8,10 @@ This repository contains a Flask-based web application for recognizing handwritt
 
 ```
 Handwritten_Japanese_Recognition_System/
+├── Adjust Parameter/                    # Adjust Parameter
+│   ├── 1_Different_LossFunctions.ipynb
+│   ├── 2_Different_LearningRate.ipynb
+│   └── 3_Different_BatchSize.ipynb
 ├── app.py                # Flask main application
 ├── static/               # Static files
 │   ├── css/
@@ -26,7 +30,6 @@ Handwritten_Japanese_Recognition_System/
 ├── .gitignore          # Git ignore file
 ├── README.md           # Project documentation
 └── requirements.txt    # Project dependencies
-
 ```
 
 ---
