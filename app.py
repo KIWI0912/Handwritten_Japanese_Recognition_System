@@ -128,7 +128,7 @@ def upload_file():
                         'result.html',
                         image_path=image_url,
                         predicted_class=predicted_class,
-                        confidence=f"{confidence:.2f}"  # 格式化为字符串
+                        confidence=confidence
                     )
 
                 except Exception as e:
