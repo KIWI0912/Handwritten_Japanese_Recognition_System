@@ -4,165 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handwritten Japanese Recognition System</title>
-    <style>
-        /* 页面整体样式 */
-        body {
-            font-family: Arial, sans-serif;
-            background: url('https://thumb.photo-ac.com/15/15f38206f6c431fef96521145b81a697_t.jpeg');
-            background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-        .header p {
-            margin: 5px 0;
-        }
-        .main {
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            max-width: 1200px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .left-panel, .right-panel {
-            flex: 1;
-            margin: 0 10px;
-        }
-        .left-panel {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .image-display {
-            border: 2px solid #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f9f9f9;
-            margin-bottom: 20px;
-            overflow: hidden;
-            max-width: 100%; /* 限制最大宽度 */
-        }
-        .image-display img {
-            max-width: 100%;
-            height: auto; /* 图片自适应 */
-        }
-        .result-box {
-            width: 100%;
-            text-align: center;
-            background: #eef;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .result-box h3 {
-            margin: 0;
-        }
-        .right-panel {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .upload-section, .batch-section {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        .upload-section button, .batch-section button {
-            display: block;
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-        .upload-section button:hover, .batch-section button:hover {
-            background: #45a049;
-        }
-        .export-button {
-            padding: 10px 20px;
-            background: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            align-self: center;
-        }
-        .export-button:hover {
-            background: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
     <div class="container">
-        <!-- 页头部分 -->
         <div class="header">
-            <h1>Handwritten Japanese Recognition System</h1>
-            <p>Date: 17 November 2024 &nbsp;|&nbsp; TTT</p>
+            <h1>📄 Handwritten Japanese Recognition System</h1>
+            <p>Upload your image and get started with recognition 🎉</p>
         </div>
+        
         <div class="main">
-            <!-- 左侧面板 -->
-            <div class="left-panel">
-                <div class="image-display" id="image-display">
-                    <p>Uploaded Image</p>
+            <div id="error-message" class="error-message"></div>
+            
+            <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+                <div class="image-section">
+                    <div class="image-display">
+                        <p id="preview-text">Uploaded Image Preview</p>
+                        <img id="preview" src="#" alt="Preview">
+                    </div>
+                    <div id="selected-filename"></div>
                 </div>
+                
+                <div class="loading" id="loading">Processing...</div>
+                
                 <div class="result-box">
                     <h3>Recognition Results</h3>
-                    <p>Character: <strong>専</strong></p>
-                    <p>Confidence: <strong>97.96%</strong></p>
+                    <p>Character: <strong id="character-result">N/A</strong></p>
+                    <p>Confidence: <strong id="confidence-result">N/A</strong></p>
                 </div>
-            </div>
-            <!-- 右侧面板 -->
-            <div class="right-panel">
-                <div class="upload-section">
-                    <label for="single-upload">Single Image Detection</label>
-                    <input type="file" id="single-upload" accept="image/png, image/jpeg, image/jpg" onchange="previewImage(event)">
-                    <button onclick="alert('Starting detection...')">Start Detection</button>
+                
+                <div class="button-group">
+                    <label class="custom-file-upload">
+                        <input type="file" id="single-upload" name="file" accept="image/png, image/jpeg, image/jpg" onchange="previewImage(event)">
+                        Choose File
+                    </label>
+                    <button type="submit" class="button" onclick="return validateAndSubmit(event)">Upload and Detect</button>
                 </div>
-                <div class="batch-section">
-                    <label for="batch-upload">Batch Detection</label>
-                    <input type="file" id="batch-upload" webkitdirectory directory multiple>
-                    <button onclick="alert('Starting batch detection...')">Batch Detection</button>
-                </div>
-                <button class="export-button" onclick="alert('Exporting results...')">Export Results</button>
-            </div>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Created by <strong>THETHINKTANK</strong></p>
+            <p>Contact us: <a href="mailto:deadchuln@gmail.com">deadchuln@gmail.com</a></p>
         </div>
     </div>
-    <script>
-        // 预览图片功能
-        function previewImage(event) {
-            const display = document.getElementById('image-display');
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    display.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image">`;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                display.innerHTML = '<p>Uploaded Image</p>'; // 如果没有选择图片，显示默认文字
-            }
-        }
-    </script>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
