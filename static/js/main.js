@@ -41,7 +41,7 @@ function showError(message) {
             document.documentElement.innerHTML = html;
         })
         .catch(error => {
-            showError('Upload failed: ' + error.message);
+            showError(error.message);
             document.getElementById('loading').style.display = 'none';
         });
 
