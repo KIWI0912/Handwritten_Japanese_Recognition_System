@@ -87,7 +87,7 @@ def plot_batch_size_comparison(batch_size_data_dict, save_path=None, figsize=(12
     plt.show()
 
 # CSV文件路径
-file_path = r"C:\Users\Richard song\Documents\WeChat Files\wxid_qmk43aaf1rcv11\FileStorage\File\2025-03\3_different_batch_size.csv"  
+file_path = r"./3_different_batch_size.csv"  
 
 # 读取并处理CSV文件
 batch_size_data_dict = read_and_process_csv(file_path)
