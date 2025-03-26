@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>识别结果</title>
+    <title>Handwritten Japanese Recognition System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
 </head>
 <body>
-    <h1>识别结果</h1>
-    <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image" style="max-width: 300px;">
-    <p>预测类别：{{ predicted_class }}</p>
-    <p>置信度：{{ confidence }}%</p>
-    <a href="/">返回主页</a>
+    <div class="container">
+        <div class="header">
+            <h1>📄 Recognition Result</h1>
+        </div>
+        
+        <div class="main">
+            <div id="error-message" class="error-message"></div>
+            
+            <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+                <div class="image-section">
+                    <div class="image-display">
+                        <img src="{{ image_path }}" alt="Uploaded Image" style="display: block;">
+                    </div>
+                    <div id="selected-filename"></div>
+                </div>
+                
+                <div class="loading" id="loading">Processing...</div>
+                
+                <div class="result-box">
+                    <h3>Recognition Results</h3>
+                    <p>Predicted Class: {{ predicted_class }}</p>
+                    <p>Confidence: {{ confidence }}%</p>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="button back-button" onclick="window.location.href='/'">
+                        <span class="back-icon">←</span> Back to reupload
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>Created by <strong>THETHINKTANK</strong></p>
+            <p>Contact us: <a href="mailto:deadchuln@gmail.com">deadchuln@gmail.com</a></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
 </body>
 </html>
